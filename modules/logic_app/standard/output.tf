@@ -18,6 +18,6 @@ output "vnet_integration_value" {
 }
 
 output "vnet_integration" {
-  value = azurerm_logic_app_standard.logic_app_standard.virtual_network_subnet_id
+  value       = azurerm_logic_app_standard.logic_app_standard.virtual_network_subnet_id
   description = "The Subet ID to attach the logic app"
 }
