@@ -14,8 +14,33 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "settings" {}
+variable "settings" {
+  description = "Client configuration object (see module README.md)."
+}
 
 variable "managed_identities" {
   default = {}
+}
+
+variable "private_endpoints" {
+  default = {}
+}
+
+variable "private_dns" {
+  default = {}
+}
+
+variable "base_tags" {
+  description = "Base tags for the resource to be inherited from the resource group."
+  type        = bool
+}
+
+variable "vnets" {
+  default = {}
+}
+
+variable "virtual_subnets" {
+  description = "Map of virtual_subnets objects"
+  default     = {}
+  nullable    = false
 }
