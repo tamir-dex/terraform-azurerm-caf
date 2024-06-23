@@ -21,26 +21,3 @@ variable "settings" {
 variable "managed_identities" {
   default = {}
 }
-
-variable "private_endpoints" {
-  default = {}
-}
-
-variable "private_dns" {
-  default = {}
-}
-
-variable "base_tags" {
-  description = "Base tags for the resource to be inherited from the resource group."
-  type        = bool
-}
-
-variable "vnets" {
-  default = {}
-}
-
-variable "virtual_subnets" {
-  description = "Map of virtual_subnets objects"
-  default     = {}
-  nullable    = false
-}
