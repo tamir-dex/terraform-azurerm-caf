@@ -14,7 +14,7 @@ output "rbac_id" {
 }
 
 output "vnet_integration_value" {
-  value = lookup(var.settings, "vnet_intergration", null)
+  value = var.settings.vnet_intergration
 }
 
 output "vnet_integration" {
