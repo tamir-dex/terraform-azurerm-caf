@@ -53,5 +53,4 @@ resource "azurerm_logic_app_standard" "logic_app_standard" {
       identity_ids = can(var.settings.identity.ids) ? var.settings.identity.ids : can(var.settings.identity.key) ? [var.managed_identities[try(var.settings.identity.lz_key, var.client_config.landingzone_key)][var.settings.identity.key].id] : null
     }
   }
-
 }
