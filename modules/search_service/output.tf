@@ -16,7 +16,7 @@ output "id" {
 }
 
 output "rbac_id" {
-  description = "The Principal ID of the Cognetive Services for Role Mapping"
+  description = "The Principal ID of the Search Services for Role Mapping"
   value       = try(azurerm_search_service.search_service.identity[0].principal_id, null)
 }
 
