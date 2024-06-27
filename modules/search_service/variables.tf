@@ -16,6 +16,7 @@ variable "resource_group_name" {
 variable "resource_group" {
   description = "Resource group object to deploy the virtual machine"
 }
+
 variable "identity" {
   default = null
 }
