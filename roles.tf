@@ -159,6 +159,7 @@ locals {
     recovery_vaults                            = local.combined_objects_recovery_vaults
     resource_groups                            = local.combined_objects_resource_groups
     route_tables                               = local.combined_objects_route_tables
+    search_services                            = local.combined_objects_search_services
     servicebus_namespaces                      = local.combined_objects_servicebus_namespaces
     servicebus_topics                          = local.combined_objects_servicebus_topics
     storage_accounts                           = local.combined_objects_storage_accounts

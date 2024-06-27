@@ -14,6 +14,7 @@ resource "azurerm_search_service" "search_service" {
   location                                 = local.location
   resource_group_name                      = local.resource_group_name
   sku                                      = lower(var.settings.sku)
+  tags                                     = merge(local.tags, try(var.settings.tags, null))
   local_authentication_enabled             = try(var.settings.local_authentication_enabled, null)
   authentication_failure_mode              = try(var.settings.authentication_failure_mode, null)
   public_network_access_enabled            = try(var.settings.public_network_access_enabled, false)
@@ -21,10 +22,10 @@ resource "azurerm_search_service" "search_service" {
   customer_managed_key_enforcement_enabled = try(var.settings.customer_managed_key_enforcement_enabled, null)
   hosting_mode                             = (lower(var.settings.sku) == "standard3") ? try(var.settings.hosting_mode, "default") : null
   dynamic "identity" {
-    for_each = try(var.identity, null) == null ? [] : [1]
+    for_each = lookup(var.settings, "identity", {}) != {} ? [1] : []
 
     content {
-      type = var.identity.type
+      type = var.settings.identity.type
     }
   }
   partition_count = ((lower(var.settings.sku) != "free") && (lower(var.settings.sku) != "basic")) ? try(var.settings.partition_count, null) : null
