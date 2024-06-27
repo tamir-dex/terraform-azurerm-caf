@@ -14,6 +14,7 @@ resource "azurerm_search_service" "search_service" {
   location                                 = local.location
   resource_group_name                      = local.resource_group_name
   sku                                      = lower(var.settings.sku)
+  tags                                     = merge(local.tags, try(var.settings.tags, null))
   local_authentication_enabled             = try(var.settings.local_authentication_enabled, null)
   authentication_failure_mode              = try(var.settings.authentication_failure_mode, null)
   public_network_access_enabled            = try(var.settings.public_network_access_enabled, false)
