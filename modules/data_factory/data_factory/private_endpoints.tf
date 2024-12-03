@@ -5,7 +5,7 @@ module "private_endpoint" {
   resource_id         = azurerm_data_factory.df.id
   name                = each.value.name
   resource_group_name = local.resource_group_name
-  location            = local.location
+  location            = each.value.location
   subnet_id           = can(each.value.subnet_id) ? each.value.subnet_id : var.remote_objects.vnets[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.vnet_key].subnets[each.value.subnet_key].id
   settings            = each.value
   global_settings     = var.global_settings
