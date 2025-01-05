@@ -7,7 +7,8 @@ data "azurecaf_name" "windows" {
   prefixes      = var.global_settings.prefixes
   random_length = var.global_settings.random_length
   clean_input   = true
-  passthrough   = try(each.value.passthrough, var.global_settings.passthrough)
+  #passthrough  = try(each.value.passthrough, var.global_settings.passthrough)
+  passthrough   = true
   use_slug      = var.global_settings.use_slug
 }
 
@@ -20,7 +21,8 @@ data "azurecaf_name" "windows_computer_name" {
   prefixes      = var.global_settings.prefixes
   random_length = var.global_settings.random_length
   clean_input   = true
-  passthrough   = try(each.value.passthrough, var.global_settings.passthrough)
+  #passthrough  = try(each.value.passthrough, var.global_settings.passthrough)
+  passthrough   = true
   use_slug      = var.global_settings.use_slug
 }
 
